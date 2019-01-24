@@ -1,12 +1,16 @@
 package io.sommers.itcamefrombehind;
 
 import com.teamacronymcoders.base.BaseModFoundation;
-import com.teamacronymcoders.base.capability.NBTCapStorage;
+import com.teamacronymcoders.base.capability.storage.EmptyCapStorage;
+import com.teamacronymcoders.base.capability.storage.NBTCapStorage;
 import com.teamacronymcoders.base.registrysystem.ItemRegistry;
+import io.sommers.itcamefrombehind.api.digestibleobject.IDigestibleObject;
 import io.sommers.itcamefrombehind.api.digestivesystem.IDigestiveSystem;
+import io.sommers.itcamefrombehind.digestibleobject.DigestibleItem;
 import io.sommers.itcamefrombehind.digestivesystem.DigestiveSystem;
 import io.sommers.itcamefrombehind.item.ItemShishKabob;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -38,6 +42,7 @@ public class ItCameFromBehind extends BaseModFoundation<ItCameFromBehind> {
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
         CapabilityManager.INSTANCE.register(IDigestiveSystem.class, new NBTCapStorage<>(), DigestiveSystem::new);
+        CapabilityManager.INSTANCE.register(IDigestibleObject.class, new EmptyCapStorage<>(), () -> new DigestibleItem(ItemStack.EMPTY));
     }
 
     @Override

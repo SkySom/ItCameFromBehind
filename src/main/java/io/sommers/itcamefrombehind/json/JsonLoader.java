@@ -91,13 +91,13 @@ public class JsonLoader<T> {
     protected Optional<T> handleFile(ResourceLocation key, Path file, JsonContext context) {
         try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
             return parseObject(bufferedReader, context);
-        } catch (IOException | JsonParseException e) {
+        } catch (IOException | JsonParseException | NullPointerException e) {
             logger.get().warn("Failed to load File for key: " + key, e);
             return Optional.empty();
         }
     }
 
-    protected Optional<T> parseObject(BufferedReader bufferedReader, JsonContext context) throws JsonParseException {
+    protected Optional<T> parseObject(BufferedReader bufferedReader, JsonContext context) throws JsonParseException, IOException {
         return Optional.ofNullable(gson.fromJson(bufferedReader, tClass));
     }
 }

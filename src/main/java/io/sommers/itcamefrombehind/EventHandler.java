@@ -5,6 +5,8 @@ import io.sommers.itcamefrombehind.api.digestivesystem.IDigestiveSystem;
 import io.sommers.itcamefrombehind.api.recipes.IDigestibleRecipe;
 import io.sommers.itcamefrombehind.api.recipes.IDigestingProgress;
 import io.sommers.itcamefrombehind.digestivesystem.DigestionSystemProvider;
+import io.sommers.itcamefrombehind.json.DigestibleRecipeJsonLoader;
+import io.sommers.itcamefrombehind.json.JsonLoader;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,6 +20,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.registries.RegistryBuilder;
 
+import java.util.Map;
+
 @EventBusSubscriber(modid = ItCameFromBehind.MOD_ID)
 public class EventHandler {
 
@@ -28,6 +32,14 @@ public class EventHandler {
         if (entity instanceof EntityPlayer) {
             entityAttachCapabilitiesEvent.addCapability(name, new DigestionSystemProvider());
         }
+    }
+
+    @SubscribeEvent
+    public static void addDigestionRecipes(RegistryEvent.Register<IDigestibleRecipe> recipeRegister) {
+        new DigestibleRecipeJsonLoader().load()
+                .stream()
+                .map(Map.Entry::getValue)
+                .forEach(recipeRegister.getRegistry()::register);
     }
 
     @SubscribeEvent

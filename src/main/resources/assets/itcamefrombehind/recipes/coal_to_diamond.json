@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "result": {
     "item": "itcamefrombehind:shish_kabob",
-    "nbt": ""
+    "nbt": "{\"DIGESTION\":{\"RECIPE_NAME\":\"itcamefrombehind:coal_to_diamond\"}}"
   },
   "pattern": [
     " c",

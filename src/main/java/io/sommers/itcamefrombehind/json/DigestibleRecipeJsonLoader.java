@@ -13,17 +13,18 @@ import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.JsonContext;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 public class DigestibleRecipeJsonLoader extends JsonLoader<IDigestibleRecipe> {
     public DigestibleRecipeJsonLoader() {
-        super("digestible_recipes", IDigestibleRecipe.class, ItCameFromBehind.INSTANCE.getLogger()::getLogger);
+        super("/digestible_recipes", IDigestibleRecipe.class, ItCameFromBehind.INSTANCE.getLogger()::getLogger);
     }
 
     @Override
-    public Optional<IDigestibleRecipe> parseObject(BufferedReader bufferedReader, JsonContext context) {
-        JsonElement element = this.gson.toJsonTree(bufferedReader);
+    public Optional<IDigestibleRecipe> parseObject(BufferedReader bufferedReader, JsonContext context) throws IOException {
+        JsonElement element = this.gson.fromJson(bufferedReader, JsonElement.class);
 
         if (element.isJsonObject()) {
             JsonObject jsonObject = element.getAsJsonObject();

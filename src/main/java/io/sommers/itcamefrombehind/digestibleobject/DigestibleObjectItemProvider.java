@@ -9,10 +9,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class DigestibleObjectItemProvider implements ICapabilityProvider {
-    private final DigestionItem digestionItem;
+    private final DigestibleItem digestibleItem;
 
-    public DigestibleObjectItemProvider(DigestionItem digestionItem) {
-        this.digestionItem = digestionItem;
+    public DigestibleObjectItemProvider(DigestibleItem digestibleItem) {
+        this.digestibleItem = digestibleItem;
     }
 
     @Override
@@ -24,6 +24,6 @@ public class DigestibleObjectItemProvider implements ICapabilityProvider {
     @Override
     public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing facing) {
         return capability == Digestion.CAP_DIGESTIBLE_OBJECT ?
-                Digestion.CAP_DIGESTIBLE_OBJECT.cast(digestionItem) : null;
+                Digestion.CAP_DIGESTIBLE_OBJECT.cast(digestibleItem) : null;
     }
 }

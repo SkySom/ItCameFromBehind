@@ -1,0 +1,10 @@
+{
+  "input": {
+    "type": "minecraft:item",
+    "item": "minecraft:coal",
+    "data": 0
+  },
+  "output" : {
+    "item": "minecraft:diamond"
+  }
+}
