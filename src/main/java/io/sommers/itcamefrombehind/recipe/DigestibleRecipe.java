@@ -1,7 +1,6 @@
 package io.sommers.itcamefrombehind.recipe;
 
-import com.google.gson.annotations.JsonAdapter;
-import io.sommers.itcamefrombehind.NonnullListCollector;
+import com.teamacronymcoders.base.util.collections.NonnullListCollector;
 import io.sommers.itcamefrombehind.api.digestivesystem.IDigestiveSystem;
 import io.sommers.itcamefrombehind.api.recipes.IDigestibleRecipe;
 import io.sommers.itcamefrombehind.api.recipes.IDigestingProgress;

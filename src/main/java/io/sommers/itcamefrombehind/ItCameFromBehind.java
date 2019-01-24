@@ -1,6 +1,7 @@
 package io.sommers.itcamefrombehind;
 
 import com.teamacronymcoders.base.BaseModFoundation;
+import com.teamacronymcoders.base.capability.NBTCapStorage;
 import com.teamacronymcoders.base.registrysystem.ItemRegistry;
 import io.sommers.itcamefrombehind.api.digestivesystem.IDigestiveSystem;
 import io.sommers.itcamefrombehind.digestivesystem.DigestiveSystem;
