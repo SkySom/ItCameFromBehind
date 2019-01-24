@@ -1,0 +1,20 @@
+[
+  {
+    "modid": "itcamefrombehind",
+    "name": "ItCameFromBehind",
+    "description": "The digestive system as a means of crafting",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "SkySom"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": [
+      "base"
+    ]
+  }
+]
